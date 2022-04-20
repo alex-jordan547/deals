@@ -1,26 +1,61 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="deals">
+    <!-- NAVBAR -->
+    <DealNavbar :menu="menu"  :title="title"></DealNavbar>
+    <!-- NAVBAR Fin -->
+
+
+    <div :class=" $route.path === '/' ? '': 'page-wrapper' ">
+
+
+        <router-view></router-view>
+
+
+
+    </div>
+
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import DealNavbar  from "@/components/Navbar";
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  components:{
+    DealNavbar,
+
+  },
+  data (){
+    return{
+      title : 'Deals',
+      menu: [
+        
+        {text: "A propos",link:"/about",class:"nav-style-guide"},
+        {text: "FAQ",link:"/faq",class: "nav-features"},
+      ],
+    }
   }
+
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss">
+
+@import 'assets/styles/variables.scss';
+@import '~bulma/bulma.sass';
+@import 'assets/styles/main.scss';
+
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: ease;
 }
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
+}
+
 </style>

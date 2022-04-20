@@ -1,12 +1,20 @@
 import { useStore} from "vuex";
+import { computed } from "vue";
 
-export default function  useRegister() {
+export default function  useAuth() {
 
     const store = useStore();
+ const { state } = store;
 
-    const register = (form) => store.dispatch("user/register", form);
+ const error = computed(() => state.user.auth.error);
+ const isProcessing = computed(() => state.user.auth.isProcessing);
+ const isAuthenticated = computed( () => store.getters["user/isAuthenticated"]);
+ const user = computed(() => state.user.data)
 
     return {
-        register
+        error,
+        isProcessing,
+        isAuthenticated,
+        user
     }
 }
