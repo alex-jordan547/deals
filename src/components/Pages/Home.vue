@@ -46,6 +46,7 @@ export default {
 
   },
   created() {
+
     this.$store.dispatch("deal/getDeals");
   },
   methods:{

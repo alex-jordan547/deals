@@ -55,10 +55,6 @@ export default {
               "Vous pouvez aussi retirer des credits à votre compte en cliquant sur “Retirer des credits”\n",
           showAnswer: false
         },
-        {
-          q: "Не, ну че прям совсем совсем???",
-          a: "Да-да, прям очень",
-          showAnswer: false}
       ]
     }
   },

@@ -17,7 +17,7 @@ import slugify from "slugify";
 
 
 const initPagination = () => ({
-    itemCount: 2,
+    itemCount: 6,
     lastItem: null,
     paginationHistory: [],
     isFetchingData: false,
@@ -80,6 +80,18 @@ export default {
             commit("setDeals", deals)
             commit("setLastItem", snapshot.docs[snapshot.docs.length - 1])
             commit("setPaginationHistory", snapshot.docs[0])
+        },
+        async getAllDeals({commit}) {
+            commit("resetPagination")
+            const dealQuery = query(
+                collection(db, "deals"),
+            );
+            const snapshot = await getDocs(dealQuery)
+
+            const deals = snapshot.docs.map(doc => {
+                return doc.data();
+            })
+            commit("setDeals", deals)
         },
         async newDeal({rootState, dispatch}, {data, onSuccess}) {
             data.user = doc(db, "users", rootState.user.data.id);

@@ -15,7 +15,7 @@
               </div>
             </router-link>
             <div class="item-tags">
-              <a class="button is-rounded" href="#" title="Some Title" v-for="(tag,index) in deal.tags" :key="index">#{{ tag }}</a>
+              <div class="button is-rounded" :title="tag" v-for="(tag,index) in deal.tags" :key="index">#{{ tag }}</div>
             </div>
             <h2 class="title item-title is-size-4 has-text-weight-extra-bold"><a class="item-link" href="#">{{deal.title}}</a></h2>
             <div class="level">
