@@ -12,14 +12,15 @@ import DealDetail from "@/components/Pages/DealDetail";
 
 
 const routes = [
-    { path: '/', component: Home,name:'home' },
+    { path: '/', component: Home,name:'home', meta: { transition: 'normal' }},
     { path: '/about', component: About ,name:'about'},
     { path: '/faq', component: faq ,name:'faq'},
     { path: '/profile', component: profile ,name:'profile',meta: { onlyAuthUser : true }},
     { path: '/login', component: login , meta: { requiresAuth: true },name:'login' },
     { path: '/register', component: register , meta: { requiresAuth: true } ,name:'register'},
     { path: '/deals/new', component: dealCreatePage, meta: { onlyAuthUser: true }, name:'dealCreate'},
-    { path: '/deals/:slug', component: DealDetail, name:'DealDetail'},
+    { path: '/deals/:slug', component: DealDetail, name:'DealDetail',meta: {transition: 'normal'} },
+
 
 
 ]

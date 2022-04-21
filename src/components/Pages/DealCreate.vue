@@ -1,5 +1,4 @@
 <template>
-  <div class="page-wrapper">
     <div class="container">
       <div class="form-container">
         <form>
@@ -109,13 +108,12 @@
                   class="button is-link" @click.prevent="createDeal">Envoyer</button>
             </div>
             <div class="control">
-              <button class="button is-text">Annuler</button>
+              <router-link  to="/" class="button has-background-danger is-link">Annuler</router-link>
             </div>
           </div>
         </form>
       </div>
     </div>
-  </div>
 </template>
 
 <script>

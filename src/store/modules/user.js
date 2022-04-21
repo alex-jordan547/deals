@@ -74,7 +74,7 @@ export default {
 
             } catch (e) {
                 commit("setAuthError", e.message)
-                dispatch("toast/error", e.message, {root: true})
+             //   dispatch("toast/error", e.message, {root: true})
 
             } finally {
                 commit("setAuthIsProcessing", false);

@@ -30,6 +30,9 @@
                     autocomplete="current-password"
                     v-model = "form.password">
                 <FormErrors :errors="v$.form.password.$errors"   />
+
+                <div class="has-text-danger" v-if="error"> Identifiants incorrects</div>
+
               </div>
             </div>
             <button
@@ -42,9 +45,9 @@
           </form>
         </div>
         <p class="has-text-grey">
-          <a href="#">Se connecter avec Google</a>&nbsp;
-          <a href="#">S'inscrire</a> &nbsp;·&nbsp;
-          <a href="#">Besoin d'aide?</a>
+<!--          <a href="#">Se connecter avec Google</a>&nbsp;-->
+          <router-link to="/register" >S'inscrire  </router-link> &nbsp;|&nbsp;
+          <router-link to="/faq">Besoin d'aide?</router-link>
         </p>
       </div>
     </div>
@@ -111,6 +114,8 @@ export default {
 </script>
 
 <style scoped>
+
+
 .hero.is-success {
   background: #F2F6FA;
 }

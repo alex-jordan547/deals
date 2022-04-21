@@ -6,11 +6,13 @@
 
 
     <div :class=" $route.path === '/' ? '': 'page-wrapper' ">
-
-
-        <router-view></router-view>
-
-
+        <router-view v-slot="{ Component, route}" >
+          <transition :name="route.meta.transition ? route.meta.transition : 'fade'" mode="out-in">
+            <div :key="route.name">
+            <component :is="Component" ></component>
+            </div>
+          </transition>
+        </router-view>
 
     </div>
 
@@ -35,7 +37,7 @@ export default {
         {text: "FAQ",link:"/faq",class: "nav-features"},
       ],
     }
-  }
+  },
 
 }
 </script>
@@ -48,14 +50,26 @@ export default {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition-duration: 0.3s;
-  transition-property: opacity;
-  transition-timing-function: ease;
+  transition: all .5s cubic-bezier(0.5, 0, 0.5, 1);
 }
 
-.fade-enter,
-.fade-leave-active {
-  opacity: 0
+
+.fade-enter-from, {
+  opacity: 0;
+  transform: translateY(100px);
+}
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(-100px);
+}
+
+.normal-enter-active,
+.normal-leave-active {
+  transition: all .5s cubic-bezier(0.5, 0, 0.5, 1);
+}
+
+.normal-enter-from,.normal-leave-to {
+  opacity: 0;
 }
 
 </style>

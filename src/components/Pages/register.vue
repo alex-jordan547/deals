@@ -60,9 +60,8 @@
           </form>
         </div>
         <p class="has-text-grey">
-          <a>S'inscrire avec Google</a>&nbsp;
-          <a>Se connecter</a>&nbsp;·&nbsp;
-          <a href="../">Besoin d'aide?</a>
+          <router-link to="/login" >Se connecter ?  </router-link> &nbsp;|&nbsp;
+          <router-link to="/faq">Besoin d'aide ?</router-link>
         </p>
       </div>
 

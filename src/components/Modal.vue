@@ -10,8 +10,11 @@
         @click="open"
         class="button is-block is-success is-light is-fullwidth">Mettre à jour vos infos
     </button>
+
     <div :class="['modal', {'is-active': isOpen}]">
+
       <div class="modal-background"></div>
+
       <div class="modal-card">
         <header class="modal-card-head">
           <p class="modal-card-title">{{ modalTitle}}</p>
@@ -36,7 +39,9 @@
 
         </footer>
       </div>
+
     </div>
+
   </div>
 </template>
 
@@ -80,6 +85,6 @@ export default {
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped >
 
 </style>
